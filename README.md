@@ -1,119 +1,97 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>リッチメニューサンプル</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
+<style>
+    /* 非表示にしたい要素用のクラス */
+    .hidden {
+        display: none;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 10px;
+    }
+    
+    .menu-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 120px 120px 120px;
+        gap: 10px;
+    }
+    
+    .menu-item {
+        background-color: #f0f8ff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .menu-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        background-color: #81d4fa; /* ホバー時に少し濃い水色に */
+    }
+    
+    .menu-item h3 {
+        margin: 0;
+        font-size: 20px; /* テキストのサイズを大きくしました */
+        font-weight: bold;
+    }
+    
+    .menu-item.full-width {
+        grid-column: span 2;
+    }
+    
+    header {
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #e6f2ff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* ヘッダー画像用のスタイル */
+    .header-image {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 6px;
+    }
+</style>
+
+<div class="container">
+    <header>
+        <!-- ビズレントのヘッダー画像 -->
+        <img src="[画像のURL]" alt="ビズレント - レンタカーにビジネス解決力を。" class="header-image">
+    </header>
+
+    <h2>ビズレント各種項目</h2>
+    <p>クリックして各ページへ移動できます</p>
+
+    <div class="menu-container">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgU-3mybGRR_K-7eO6__I9P7Xrh0WeXE_A9mRVMbwz2iqAYQ/viewform?usp=header" class="menu-item">
+            <h3>新規発注</h3>
+        </a>
         
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 10px;
-        }
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgU-3mybGRR_K-7eO6__I9P7Xrh0WeXE_A9mRVMbwz2iqAYQ/viewform?usp=header" class="menu-item">
+            <h3>車両の一時預かり</h3>
+        </a>
         
-        .menu-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 120px 120px 120px;
-            gap: 10px;
-        }
+        <a href="https://www.twitter.com" class="menu-item">
+            <h3>車検のご予約</h3>
+        </a>
         
-        .menu-item {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s ease;
-        }
+        <a href="https://www.instagram.com" class="menu-item">
+            <h3>事故受け付け</h3>
+        </a>
         
-        .menu-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .menu-item i {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #4285f4;
-        }
-        
-        .menu-item.full-width {
-            grid-column: span 2;
-        }
-        
-        .menu-item h3 {
-            margin: 0;
-            font-size: 16px;
-        }
-        
-        .icon {
-            width: 40px;
-            height: 40px;
-            background-color: #4285f4;
-            border-radius: 50%;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        header {
-            text-align: center;
-            padding: 10px;
-            margin-bottom: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>リッチメニューサンプル</h1>
-            <p>クリックして各ページへ移動できます</p>
-        </header>
-        
-        <div class="menu-container">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgU-3mybGRR_K-7eO6__I9P7Xrh0WeXE_A9mRVMbwz2iqAYQ/viewform?usp=header" class="menu-item">
-                <div class="icon">G</div>
-                <h3>Google</h3>
-            </a>
-            
-            <a href="https://www.youtube.com" class="menu-item">
-                <div class="icon">Y</div>
-                <h3>YouTube</h3>
-            </a>
-            
-            <a href="https://www.twitter.com" class="menu-item">
-                <div class="icon">X</div>
-                <h3>Twitter</h3>
-            </a>
-            
-            <a href="https://www.instagram.com" class="menu-item">
-                <div class="icon">I</div>
-                <h3>Instagram</h3>
-            </a>
-            
-            <a href="https://www.amazon.co.jp" class="menu-item full-width">
-                <div class="icon">A</div>
-                <h3>Amazon</h3>
-            </a>
-        </div>
+        <a href="https://www.amazon.co.jp" class="menu-item full-width">
+            <h3>車両に関しての資料</h3>
+        </a>
     </div>
-</body>
-</html>
+</div>
