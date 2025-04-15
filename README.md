@@ -67,7 +67,7 @@
 <div class="container">
     <header>
         <!-- ビズレントのヘッダー画像 -->
-        <img src="[画像のURL]" alt="ビズレント - レンタカーにビジネス解決力を。" class="header-image">
+        <img src="images" class="header-image">
     </header>
 
     <h2>ビズレント各種項目</h2>
